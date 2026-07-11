@@ -1,11 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = "https://web-production-2d5d5.up.railway.app";
-
 export const api = axios.create({
-  baseURL: BASE_URL,
+  baseURL: import.meta.env.VITE_API_URL,
 });
-
 
 // Attach access token
 api.interceptors.request.use((config) => {
@@ -31,8 +28,8 @@ api.interceptors.response.use(
         const refresh = localStorage.getItem("refresh");
 
         const res = await axios.post(
-          `${BASE_URL}/token/refresh/`
-          { refresh }
+          `${import.meta.env.VITE_API_URL}/token/refresh/`,
+          { refresh },
         );
 
         localStorage.setItem("access", res.data.access);
