@@ -32,7 +32,7 @@ api.interceptors.response.use(
 
         const res = await axios.post(
           `${BASE_URL}/token/refresh/`
-          { refresh },
+          { refresh }
         );
 
         localStorage.setItem("access", res.data.access);
