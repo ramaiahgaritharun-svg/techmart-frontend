@@ -1,8 +1,11 @@
 import axios from "axios";
 
+const BASE_URL = "https://web-production-2d5d5.up.railway.app";
+
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: BASE_URL,
 });
+
 
 // Attach access token
 api.interceptors.request.use((config) => {
